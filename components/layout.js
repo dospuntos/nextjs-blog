@@ -3,9 +3,10 @@ import Image from "next/image";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
+import Slideshow from "./Slideshow/Slideshow";
 
 const name = "Dos Puntos Design";
-export const siteTitle = "Next.js Sample Website";
+export const siteTitle = "Dos Puntos Design";
 
 export default function Layout({ children, home }) {
   return (
@@ -19,10 +20,15 @@ export default function Layout({ children, home }) {
             siteTitle
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
-        <meta name="og:title" content={siteTitle} />
+        <meta name="og:title" content={"Web and Graphic Design" + siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald"
+          rel="stylesheet"
+        />
       </Head>
-      <header className={styles.header}>
+      {home && <Slideshow />}
+      {/* <header className={styles.header}>
         {home ? (
           <>
             <Image
@@ -56,7 +62,7 @@ export default function Layout({ children, home }) {
             </h2>
           </>
         )}
-      </header>
+      </header> */}
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
